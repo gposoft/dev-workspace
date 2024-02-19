@@ -36,7 +36,7 @@
 
 ```
 
-- Paso 3 Instalación de los tipos(Typescript) de NODE 
+- Paso 3 Instalación de los tipos(Typescript) de NODE
 
 ```bash
 npm install @types/node --save-dev
@@ -51,5 +51,15 @@ npm install @types/node --save-dev
     "build": "tsc",
     "start": "node build/index.js"
 },
+
+```
+
+- Paso 5 Instalar git del siguiente sitio [https://git-scm.com/](https://git-scm.com/)
+
+```bash
+
+Clonar:    git clone https://github.com/gposoft/dev-workspace.git
+Actualiza: git pull origin main
+
 
 ```
