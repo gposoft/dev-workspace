@@ -70,5 +70,9 @@ npm install @types/node --save-dev
      ```bash
       Actualiza: git pull origin main
      ```
+  6. Para poder correr el proyecto se debe hacer primero la instalación de los paquetes  
+     ```bash
+      npm install
+     ```
 
-# Ahora cierre el proyecto al final de la clase puede hacer pull o en cualquier hora ya que se encuentra en la nube 
+
