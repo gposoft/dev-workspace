@@ -1,4 +1,4 @@
-import { DocumentMinerTemplete } from "../document/document";
+import { DocumentMinerTemplete } from "../context/context.template";
 
 export class PdfMinerTemplate extends DocumentMinerTemplete {
   extract(): string {
