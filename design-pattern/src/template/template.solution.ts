@@ -1,6 +1,4 @@
-import { CsvMinerTemplate, DocMinerTemplate, PdfMinerTemplate } from "./usecases";
-
-
+import { CsvMinerTemplate, DocMinerTemplate, PdfMinerTemplate } from ".";
 
 export const clientTemplate = () => {
   const pdf = new PdfMinerTemplate("document.pdf");
