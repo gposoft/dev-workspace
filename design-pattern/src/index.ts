@@ -1,11 +1,14 @@
-import { clientStrategy } from "./strategy/strategy.solution";
-import { clientTemplate } from "./template/template.solution"
+import { clientSemaforoProblem } from "./state/state.problem";
+import { clientSemaforoState } from "./state/state.man.solution";
+import { clientSemaforoAutState } from "./state/state.aut.solution";
 
 const start = () => {
-  console.log("start","iniciado...");
+  console.log("start", "iniciado...");
 
-  //clientTemplate()
-  clientStrategy();
+  //clientSemaforoProblem()
+  //clientSemaforoState()
+  clientSemaforoAutState();
+
 };
 
 start();
