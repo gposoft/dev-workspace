@@ -15,24 +15,30 @@
 
 ```bash
 
-  {
+{
   "compilerOptions": {
     "experimentalDecorators": true,
-    "target": "es2020",
-    "lib": ["es2020"],
+    "target": "ES2021",
+    "lib": [
+      "ES2021"
+    ],
     "module": "commonjs",
     "rootDir": "./src",
     "moduleResolution": "node",
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     "outDir": "./build",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
     "resolveJsonModule": true
-    },
-    "exclude": ["node_modules"]
-  }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
 
 ```
 
@@ -70,9 +76,11 @@ npm install @types/node --save-dev
      ```bash
       Actualiza: git pull origin main
      ```
-  6. Para poder correr el proyecto se debe hacer primero la instalación de los paquetes  
+  6. Para poder correr el proyecto se debe hacer primero la instalación de los paquetes
      ```bash
       npm install
      ```
-
-
+  7. Manejo de variable de entorno
+     ```bash
+      npm i dotenv
+     ```
