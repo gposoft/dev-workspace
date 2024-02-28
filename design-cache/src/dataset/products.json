@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Producto A",
+    "expiration": "2024-05-31",
+    "price": 15.99
+  },
+  {
+    "id": 2,
+    "name": "Producto B",
+    "expiration": "2024-08-15",
+    "price": 25.49
+  },
+  {
+    "id": 3,
+    "name": "Producto C",
+    "expiration": "2023-12-10",
+    "price": 10.99
+  },
+  {
+    "id": 4,
+    "name": "Producto D",
+    "expiration": "2024-06-20",
+    "price": 30.79
+  },
+  {
+    "id": 5,
+    "name": "Producto E",
+    "expiration": "2024-04-05",
+    "price": 12.5
+  },
+  {
+    "id": 6,
+    "name": "Producto F",
+    "expiration": "2024-09-28",
+    "price": 18.75
+  },
+  {
+    "id": 7,
+    "name": "Producto G",
+    "expiration": "2023-11-15",
+    "price": 22.99
+  },
+  {
+    "id": 8,
+    "name": "Producto H",
+    "expiration": "2024-07-10",
+    "price": 14.25
+  },
+  {
+    "id": 9,
+    "name": "Producto I",
+    "expiration": "2024-02-28",
+    "price": 28.99
+  },
+  {
+    "id": 10,
+    "name": "Producto J",
+    "expiration": "2023-10-05",
+    "price": 19.99
+  },
+  {
+    "id": 11,
+    "name": "Producto K",
+    "expiration": "2024-03-15",
+    "price": 16.49
+  },
+  {
+    "id": 12,
+    "name": "Producto L",
+    "expiration": "2024-08-05",
+    "price": 24.99
+  },
+  {
+    "id": 13,
+    "name": "Producto M",
+    "expiration": "2023-09-30",
+    "price": 11.99
+  },
+  {
+    "id": 14,
+    "name": "Producto N",
+    "expiration": "2024-01-20",
+    "price": 32.5
+  },
+  {
+    "id": 15,
+    "name": "Producto O",
+    "expiration": "2023-07-15",
+    "price": 13.75
+  },
+  {
+    "id": 16,
+    "name": "Producto P",
+    "expiration": "2024-04-10",
+    "price": 20.99
+  },
+  {
+    "id": 17,
+    "name": "Producto Q",
+    "expiration": "2023-06-25",
+    "price": 17.25
+  },
+  {
+    "id": 18,
+    "name": "Producto R",
+    "expiration": "2024-05-15",
+    "price": 26.99
+  },
+  {
+    "id": 19,
+    "name": "Producto S",
+    "expiration": "2023-12-01",
+    "price": 15.5
+  },
+  {
+    "id": 20,
+    "name": "Producto T",
+    "expiration": "2024-02-26",
+    "price": 9999
+  }
+]
