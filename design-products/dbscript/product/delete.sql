@@ -16,7 +16,6 @@ $$
 		select ds.product_id as id, 
 			   ds.code,  
 			   ds.name,
-			   ds.price,
 			   ds.description, 
 			   ds.sort
 		INTO result

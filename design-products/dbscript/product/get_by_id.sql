@@ -1,9 +1,10 @@
-CREATE OR REPLACE FUNCTION products.gets()  
+CREATE OR REPLACE FUNCTION products.get_by_id(
+   _id character varying(40)
+)  
   RETURNS table(
 	 			id character varying(40),
 		        code text,
 	  			name text,
-	            price numeric,
 				description text,
 				sort text
 			  ) 
@@ -18,21 +19,22 @@ $$
 		select ds.product_id as id, 
 			   ds.code,  
 			   ds.name,
-			   ds.price,
 			   ds.description, 
 			   ds.sort
-		FROM products.product AS ds;
+		FROM products.product AS ds
+		WHERE ds.product_id = _id;
     END  
 $$;  
 
 
 
-CREATE OR REPLACE FUNCTION providers.product_gets()
+CREATE OR REPLACE FUNCTION providers.product_get_by_id(
+   _id character varying(40)
+)  
   RETURNS table(
 	 			id character varying(40),
 		        code text,
 	  			name text,
-	            price numeric,
 				description text,
 				sort text
 			  ) 
@@ -47,9 +49,8 @@ BEGIN
     	select ds.id, 
 			   ds.code,  
 			   ds.name,
-			   ds.price,
 			   ds.description, 
 			   ds.sort
-	from products.gets() as ds;
+	from products.get_by_id(_id) as ds;
 END
 $$;

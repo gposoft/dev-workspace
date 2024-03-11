@@ -11,15 +11,17 @@ $$
 		register record;
 		
 		rcnews record;
-		result record;
+		resp_catalog jsonb;
+		result jsonb;
 	BEGIN  
 	
 		 SELECT         
 			value->>'code'            as code,
 			value->>'name'            as name,
-		   (value->>'price')::numeric as price,
 			value->>'description'     as description,
-		    value->>'sort'            as sort
+		    value->>'sort'            as sort,
+			
+			COALESCE(NULLIF(value->>'catalogs', ''),'') as catalogs
 		INTO register
 		FROM jsonb_each(dataset);
 	
@@ -28,23 +30,27 @@ $$
 					SET 
 		     		code        = COALESCE(register.code, code),
 					name        = COALESCE(register.name, name),
-					price       = COALESCE(register.price, price),
 					description = COALESCE(register.description, description),
 					sort        = COALESCE(register.sort, sort)
 		    WHERE product_id = id 
 		    RETURNING *)
 				
-	        
-		    select ds.product_id as id, 
-			       ds.code,  
-				   ds.name,
-				   ds.price,
-				   ds.description, 
-				   ds.sort
-			INTO result
+			select jsonb_build_object(
+			       'id', ds.product_id, 
+			       'code', ds.code,  
+				   'name', ds.name,
+				   'description', ds.description, 
+				   'sort', ds.sort
+			) INTO result
 			FROM dsrows AS ds;
+			
+			
+		    if register.catalogs <> '' then
+				resp_catalog = products.create_catalogs(register.product_id, dataset);
+				result = result || jsonb_build_object('catalogs', jsonb_array_elements(resp_catalog->'catalogs'));
+			end if;
 		
-        return to_jsonb(result);
+           return result;
     END  
 $$;  
 
