@@ -76,11 +76,28 @@ npm install @types/node --save-dev
      ```bash
       Actualiza: git pull origin main
      ```
-  6. Para poder correr el proyecto se debe hacer primero la instalación de los paquetes
+1. Para poder correr el proyecto se debe hacer primero la instalación de los paquetes
      ```bash
       npm install
      ```
-  7. Manejo de variable de entorno
+2. Manejo de variable de entorno
      ```bash
       npm i dotenv
+      npm i pg 
+      npm i @types/pg --save-dev
      ```
+3. Test
+     ```bash
+      npm install -D vitest
+
+      
+      "scripts": {
+        ...
+        test:"vitest"
+      },
+     ```
+4. Fakes
+  ```bash
+    npm install --save-dev @faker-js/faker
+  ```
+   
