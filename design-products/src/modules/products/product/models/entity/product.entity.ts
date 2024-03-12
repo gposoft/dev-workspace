@@ -6,7 +6,6 @@ export interface Product {
   name: string;
   description: string;
   sort: string;
-
   catalogs: Catalog[];
 }
 

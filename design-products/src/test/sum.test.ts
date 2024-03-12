@@ -47,9 +47,6 @@ assert:
 
 describe("Grupo de test de matemáticas", () => {
   test("Prueba la función de suma", () => {
-
-    
-
     const mockA = 1;
     const mockB = 2;
     const mockEspero = 3
