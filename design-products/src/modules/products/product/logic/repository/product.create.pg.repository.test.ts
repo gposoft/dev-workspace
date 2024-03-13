@@ -1,6 +1,7 @@
 import { assert, describe, test } from "vitest";
 import { CreateProduct, Product } from "../../models";
 import { ProductCreatePgRepository } from "./product.create.pg.repository";
+import { ProductTestFactory } from "../../../core/tests/product.test.factory";
 
 describe("Test Product logic", () => {
   //Paso: 1 crear mock de PG
@@ -11,14 +12,7 @@ describe("Test Product logic", () => {
           return {
             rows: [
               {
-                product_create: {
-                  id: "001",
-                  code: "code1",
-                  name: "name1",
-                  description: "description1",
-                  sort: "sort1",
-                  catalogs: [{ id: "c1", type: "PRODUCT-CATEGORY" }],
-                },
+                product_create: ProductTestFactory.getProduct({}),
               },
             ],
           };
@@ -27,22 +21,36 @@ describe("Test Product logic", () => {
     },
   };
 
+  const mockConnectPgError: any = {
+    connect: async (): Promise<any> => {
+      return {
+        query: async (query: string, values: any[]) => {
+          throw new Error("llave duplicada");
+        },
+      };
+    },
+  };
+
   test("Test - Create product", async () => {
     //paso: 2 creo producto
-    const create: CreateProduct = {
-      id: "001",
-      code: "code1",
-      name: "name1",
-      description: "description1",
-      sort: "sort1",
-      catalogs: [{ id: "c1", type: "PRODUCT-CATEGORY" }],
-    };
+    const create: CreateProduct = ProductTestFactory.getCreateProduct({});
 
     const repository = new ProductCreatePgRepository(mockConnectPg);
     const result = await repository.execute(create);
 
     assert.equal(result.status, "success");
     assert.equal(result.error, null);
-    assert.deepEqual(result.data, create)
+    assert.deepEqual(result.data, create);
+  });
+
+  test("Test - Create product -> Espero un error", async () => {
+    const create: CreateProduct = ProductTestFactory.getCreateProduct({});
+
+    const repository = new ProductCreatePgRepository(mockConnectPgError);
+    const result = await repository.execute(create);
+
+     assert.equal(result.status, "error");
+     assert.equal(result.error, "llave duplicada", "Es correcto");
+     assert.equal(result.data, null)
   });
 });

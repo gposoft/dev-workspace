@@ -2,38 +2,9 @@ import { assert, describe, test } from "vitest";
 import { CreateProduct, Product } from "../models";
 import { Result } from "../../../common";
 import { ProductCreateService } from "./product.create.service";
-import { Catalog } from "../../../common/models/catalog.models";
+import { ProductTestFactory } from "../../core/tests/product.test.factory";
 
-class ProductTestFactory {
-  static getProduct({ id = "1", code = "code1", name = "name1", description = "description1", sort = "sort1", catalogs = [{ id: "C!", type: "PRODUCT-CATEGORY" }]}): Product {
-    return {
-      id,
-      code,
-      name,
-      description,
-      sort,
-      catalogs: catalogs as Catalog[],
-    };
-  }
 
-  static getCreateProduct({
-    id = "1",
-    code = "code1",
-    name = "name1",
-    description = "description1",
-    sort = "sort1",
-    catalogs = [{ id: "C!", type: "PRODUCT-CATEGORY" }],
-  }): CreateProduct {
-    return {
-      id,
-      code,
-      name,
-      description,
-      sort,
-      catalogs: catalogs as Catalog[],
-    };
-  }
-}
 
 describe("Test - ProductServices", () => {
   test("Test - CreateProduct", async () => {
@@ -55,12 +26,12 @@ describe("Test - ProductServices", () => {
     //PASO:3 CREA EL OBJETO ESPERADO
     const expected: Result<Product | null> = {
       status: "success",
-      data: ProductTestFactory.getProduct({id:"x111"}),
+      data: ProductTestFactory.getProduct({ id: "x111" }),
       error: null,
     };
 
     //PASO:4 CREO LOS DATOS DEL PRODUCTO
-    const create: CreateProduct = ProductTestFactory.getCreateProduct({id:"x111"});
+    const create: CreateProduct = ProductTestFactory.getCreateProduct({ id: "x111" });
 
     //PASO:5 PRUEBO LA FUNCIONALIDAD CONCEPTUAL
     const result = await productService.execute(create);
